@@ -59,7 +59,7 @@ public class Table {
         return true;
     }
 
-    public String horizontal() {
+    private String horizontal() {
         int result = 0;
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
@@ -76,7 +76,7 @@ public class Table {
         return "Draw";
     }
 
-    public String vertical() {
+    private String vertical() {
         int result = 0;
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
@@ -89,6 +89,20 @@ public class Table {
             } else {
                 result = 0;
             }
+        }
+        return "Draw";
+    }
+
+    public String leftDiagonal() {
+        int result = 0;
+        for (int i = 0; i < row; i++) {
+            result += field[i][i];
+        }
+
+        if (result == xWin) {
+            return "X wins";
+        } else if (result == oWin) {
+            return "O wins";
         }
         return "Draw";
     }
