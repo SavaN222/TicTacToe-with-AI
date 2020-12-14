@@ -20,7 +20,6 @@ public class Table {
                 }
             }
         }
-        drawField();
     }
 
     public void drawField() {
