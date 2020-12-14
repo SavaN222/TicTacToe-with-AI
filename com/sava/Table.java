@@ -93,12 +93,27 @@ public class Table {
         return "Draw";
     }
 
-    public String leftDiagonal() {
+    private String leftDiagonal() {
         int result = 0;
         for (int i = 0; i < row; i++) {
             result += field[i][i];
         }
 
+        if (result == xWin) {
+            return "X wins";
+        } else if (result == oWin) {
+            return "O wins";
+        }
+        return "Draw";
+    }
+
+    public String rightDiagonal() {
+        int result = 0;
+        int column = 2;
+        for (int i = 0; i < row; i++) {
+            result += field[i][column];
+            column--;
+        }
         if (result == xWin) {
             return "X wins";
         } else if (result == oWin) {
