@@ -122,14 +122,14 @@ public class Table {
         return "Draw";
     }
 
-    public String checkEmpty() {
+    public boolean isFinished() {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 if (field[i][j] == ' ') {
-                    return "Game not finished";
+                    return false;
                 }
             }
         }
-        return "Draw";
+        return true;
     }
 }
