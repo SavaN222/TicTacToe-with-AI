@@ -30,6 +30,8 @@ public class Game {
                     userVsAi();
                 } else if (param1.equals("easy") && param2.equals("user")) {
                     aiVsUser();
+                } else if (param1.equals("easy") && param2.equals("easy")) {
+                    aiVsAi();
                 }
             } else {
                 System.out.println("Bad parameters");
@@ -64,11 +66,42 @@ public class Game {
         }
     }
 
+    private void aiVsAi() {
+        table.drawField();
+        boolean flag = true;
+        boolean playerX = true;
+            while (flag) {
+                if (playerX) {
+                    Random random = new Random();
+                    int cord1 = random.nextInt(3);
+                    int cord2 = random.nextInt(3);
+                    if (table.isEmpty(cord1 ,cord2)) {
+                        Table.field[cord1][cord2] = 'X';
+                        System.out.println("Making move level \"easy\"");
+                        playerX = false;
+                    }
+                } else {
+                    Random random = new Random();
+                    int cord1 = random.nextInt(3);
+                    int cord2 = random.nextInt(3);
+                    if (table.isEmpty(cord1 ,cord2)) {
+                        Table.field[cord1][cord2] = 'O';
+                        System.out.println("Making move level \"easy\"");
+                        playerX = true;
+                    }
+                }
+                table.drawField();
+                if (!table.getWinner().equals("continue")) {
+                    System.out.println(table.getWinner());
+                    flag = false;
+                }
+            }
+        }
+
     private void userVsAi() {
         table.drawField();
         boolean flag = true;
         boolean playerX = true;
-        while (flag) {
             while (flag) {
                 if (playerX) {
                     System.out.print("Enter the coordinates: ");
@@ -96,8 +129,6 @@ public class Game {
                 }
             }
         }
-        }
-
     private void aiVsUser() {
         table.drawField();
         boolean flag = true;
