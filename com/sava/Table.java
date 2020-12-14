@@ -122,7 +122,7 @@ public class Table {
         return "Draw";
     }
 
-    public boolean isFinished() {
+    private boolean isFinished() {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 if (field[i][j] == ' ') {
@@ -131,5 +131,24 @@ public class Table {
             }
         }
         return true;
+    }
+
+    public String getWinner() {
+        if (!"Draw".equals(horizontal())) {
+            return horizontal();
+        }
+        if (!"Draw".equals(vertical())) {
+            return vertical();
+        }
+        if (!"Draw".equals(leftDiagonal())) {
+            return leftDiagonal();
+        }
+        if (!"Draw".equals(rightDiagonal())) {
+            return rightDiagonal();
+        }
+        if (!isFinished()) {
+            return "Game not finished";
+        }
+        return "Draw";
     }
 }
