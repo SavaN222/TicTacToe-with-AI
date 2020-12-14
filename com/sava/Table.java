@@ -52,7 +52,7 @@ public class Table {
             return false;
         }
 
-        if (field[cord1-1][cord2-1] != ' ') {
+        if (field[cord1 - 1][cord2 - 1] != ' ') {
             System.out.println("This cell is occupied! Choose another one!");
             return false;
         }
@@ -64,6 +64,23 @@ public class Table {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 result += field[i][j];
+            }
+            if (result == xWin) {
+                return "X wins";
+            } else if (result == oWin) {
+                return "O wins";
+            } else {
+                result = 0;
+            }
+        }
+        return "Draw";
+    }
+
+    public String vertical() {
+        int result = 0;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                result += field[j][i];
             }
             if (result == xWin) {
                 return "X wins";
