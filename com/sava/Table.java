@@ -50,7 +50,7 @@ public class Table {
             return false;
         }
 
-        if (field[cord1][cord2] != ' ') {
+        if (field[cord1-1][cord2-1] != ' ') {
             System.out.println("This cell is occupied! Choose another one!");
             return false;
         }
