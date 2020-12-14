@@ -107,7 +107,7 @@ public class Table {
         return "Draw";
     }
 
-    public String rightDiagonal() {
+    private String rightDiagonal() {
         int result = 0;
         int column = 2;
         for (int i = 0; i < row; i++) {
@@ -118,6 +118,17 @@ public class Table {
             return "X wins";
         } else if (result == oWin) {
             return "O wins";
+        }
+        return "Draw";
+    }
+
+    public String checkEmpty() {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (field[i][j] == ' ') {
+                    return "Game not finished";
+                }
+            }
         }
         return "Draw";
     }

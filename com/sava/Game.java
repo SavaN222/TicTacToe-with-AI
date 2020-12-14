@@ -24,7 +24,7 @@ public class Game {
                     playerX = true;
                 }
                 table.drawField();
-                System.out.println(table.rightDiagonal());
+//                System.out.println(table.checkEmpty());
                 flag = false;
             }
 
