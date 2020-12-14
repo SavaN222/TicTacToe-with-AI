@@ -146,20 +146,4 @@ public class Table {
         }
         return "Draw";
     }
-
-    public boolean playerTurn() {
-        int x = 0;
-        int o = 0;
-
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                if (field[i][j] == 'X') {
-                    x++;
-                } else if (field[i][j] == 'O'){
-                    o++;
-                }
-            }
-        }
-        return x <= o;
-    }
 }
