@@ -13,7 +13,7 @@ public class Game {
         while (flag) {
             System.out.print("Enter the coordinates: ");
             String[] coords = sc.nextLine().split(" ");
-            if (table.checkInput(coords[0], coords[1])) {
+            if (table.checkInput(coords)) {
                 int row = Integer.parseInt(coords[0])-1;
                 int col = Integer.parseInt(coords[1])-1;
                 if (playerX) {
@@ -23,10 +23,11 @@ public class Game {
                     Table.field[row][col] = 'O';
                     playerX = true;
                 }
+                table.drawField();
+//              table.checkWinner();
+                flag = false;
             }
-            table.drawField();
-//            table.checkWinner();
-            flag = false;
+
         }
     }
 }

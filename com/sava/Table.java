@@ -34,12 +34,12 @@ public class Table {
         System.out.println("---------");
     }
 
-    public boolean checkInput(String cordRow, String cordCol) {
+    public boolean checkInput(String[] coords) {
         int cord1 = 0;
         int cord2 = 0;
         try {
-            cord1 = Integer.parseInt(cordRow);
-            cord2 = Integer.parseInt(cordCol);
+            cord1 = Integer.parseInt(coords[0]);
+            cord2 = Integer.parseInt(coords[1]);
         } catch (NumberFormatException e) {
             System.out.println("You should enter numbers!");
             return false;
