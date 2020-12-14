@@ -7,6 +7,8 @@ public class Table {
     private static final int col = 3;
     public static int[][] field = new int[row][col];
     private static Scanner sc = new Scanner(System.in);
+    private static final int xWin = 264;
+    private static final int oWin = 237;
 
     public Table() {
         System.out.print("Enter the cells: ");
@@ -55,5 +57,22 @@ public class Table {
             return false;
         }
         return true;
+    }
+
+    public String horizontal() {
+        int result = 0;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                result += field[i][j];
+            }
+            if (result == xWin) {
+                return "X wins";
+            } else if (result == oWin) {
+                return "O wins";
+            } else {
+                result = 0;
+            }
+        }
+        return "Draw";
     }
 }

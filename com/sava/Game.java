@@ -24,7 +24,7 @@ public class Game {
                     playerX = true;
                 }
                 table.drawField();
-//              table.checkWinner();
+                System.out.println(table.horizontal());
                 flag = false;
             }
 
