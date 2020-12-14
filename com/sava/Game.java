@@ -22,14 +22,10 @@ public class Game {
                     playerX = false;
                 }
             } else {
-                Random random = new Random();
-                int cord1 = random.nextInt(3);
-                int cord2 = random.nextInt(3);
-                if (table.isEmpty(cord1 ,cord2)) {
-                    Table.field[cord1][cord2] = 'O';
+                    easyMode();
                     System.out.println("Making move level \"easy\"");
                     playerX = true;
-                }
+
             }
             table.drawField();
             if (!table.getWinner().equals("continue")) {
@@ -37,5 +33,26 @@ public class Game {
                 flag = false;
             }
         }
+    }
+
+    private void easyMode() {
+        Random random = new Random();
+        boolean flag = true;
+
+        while (flag) {
+            int cord1 = random.nextInt(3);
+            int cord2 = random.nextInt(3);
+            if (table.isEmpty(cord1, cord2)) {
+                Table.field[cord1][cord2] = 'O';
+            } else {
+                continue;
+            }
+            if (table.getWinner().equals("O wins")) {
+                Table.field[cord1][cord2] = ' ';
+            } else {
+                flag = false;
+            }
+        }
+
     }
 }

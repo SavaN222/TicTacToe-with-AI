@@ -56,7 +56,6 @@ public class Table {
 
     public boolean isEmpty(int cord1, int cord2) {
         if (field[cord1][cord2] != ' ') {
-            System.out.println("This cell is occupied! Choose another one!");
             return false;
         }
         return true;
