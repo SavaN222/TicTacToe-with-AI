@@ -54,6 +54,14 @@ public class Table {
         return true;
     }
 
+    public boolean isEmpty(int cord1, int cord2) {
+        if (field[cord1][cord2] != ' ') {
+            System.out.println("This cell is occupied! Choose another one!");
+            return false;
+        }
+        return true;
+    }
+
     private String horizontal() {
         int result = 0;
         for (int i = 0; i < row; i++) {
@@ -141,9 +149,10 @@ public class Table {
         if (!"Draw".equals(rightDiagonal())) {
             return rightDiagonal();
         }
-        if (!isFinished()) {
-            return "Game not finished";
+        if (isFinished()) {
+            return "Draw";
         }
-        return "Draw";
+        return "continue";
     }
+
 }

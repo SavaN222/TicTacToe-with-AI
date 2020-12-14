@@ -1,5 +1,6 @@
 package com.sava;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
@@ -11,23 +12,30 @@ public class Game {
         boolean flag = true;
 
         while (flag) {
-            System.out.print("Enter the coordinates: ");
-            String[] coords = sc.nextLine().split(" ");
-            if (table.checkInput(coords)) {
-                int row = Integer.parseInt(coords[0])-1;
-                int col = Integer.parseInt(coords[1])-1;
-                if (playerX) {
+            if (playerX) {
+                System.out.print("Enter the coordinates: ");
+                String[] coords = sc.nextLine().split(" ");
+                if (table.checkInput(coords)) {
+                    int row = Integer.parseInt(coords[0])-1;
+                    int col = Integer.parseInt(coords[1])-1;
                     Table.field[row][col] = 'X';
                     playerX = false;
-                } else {
-                    Table.field[row][col] = 'O';
+                }
+            } else {
+                Random random = new Random();
+                int cord1 = random.nextInt(3);
+                int cord2 = random.nextInt(3);
+                if (table.isEmpty(cord1 ,cord2)) {
+                    Table.field[cord1][cord2] = 'O';
+                    System.out.println("Making move level \"easy\"");
                     playerX = true;
                 }
-                table.drawField();
+            }
+            table.drawField();
+            if (!table.getWinner().equals("continue")) {
                 System.out.println(table.getWinner());
                 flag = false;
             }
-
         }
     }
 }
