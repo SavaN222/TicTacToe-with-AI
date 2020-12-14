@@ -33,4 +33,27 @@ public class Table {
         }
         System.out.println("---------");
     }
+
+    public boolean checkInput(String cordRow, String cordCol) {
+        int cord1 = 0;
+        int cord2 = 0;
+        try {
+            cord1 = Integer.parseInt(cordRow);
+            cord2 = Integer.parseInt(cordCol);
+        } catch (NumberFormatException e) {
+            System.out.println("You should enter numbers!");
+            return false;
+        }
+
+        if (cord1 < 1 || cord2 < 1 || cord1 > 3 || cord2 > 3) {
+            System.out.println("Coordinates should be from 1 to 3!");
+            return false;
+        }
+
+        if (field[cord1][cord2] != ' ') {
+            System.out.println("This cell is occupied! Choose another one!");
+            return false;
+        }
+        return true;
+    }
 }
