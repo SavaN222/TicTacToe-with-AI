@@ -7,7 +7,7 @@ public class Game {
     Table table = new Table();
 
     public Game() {
-        boolean playerX = true;
+        boolean playerX = table.playerTurn();
         boolean flag = true;
 
         while (flag) {
